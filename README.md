@@ -1,14 +1,20 @@
 # WikiTableScraping
-This is a Scrapy project to scrape json response  from  http://www.trumptwitterarchive.com/data/realdonaldtrump/2017.json and http://trumptwitterarchivedata.s3-website-us-east-1.amazonaws.com/data/realdonaldtrump/2016.json.
+This is a Scrapy project to scrape Wikipedia Table  from  https://en.wikipedia.org/wiki/List_of_cities_in_India_by_population.
 
 This project is only meant for educational purposes.
 
 ## Handle Response 
 
-Json response
+Table Selection
 
 
-![Image of Json](https://github.com/Aniruddhsinh03/jsonRequesthandleDemo/blob/master/screenshots/1.jpg)
+![Image of Table](https://github.com/Aniruddhsinh03/WikiTableScraping/blob/master/screenshots/1.jpg)
+
+
+Row Selection
+
+
+![Image of Row](https://github.com/Aniruddhsinh03/WikiTableScraping/blob/master/screenshots/2.jpg)
 
 
 
@@ -17,19 +23,15 @@ Json response
 
 ## Extracted data
 
-This project extracts tweet details.
+This project extracts city details.
 The extracted data looks like this sample:
 
             {
-            "created_at": "Mon Jan 01 13:37:52 +0000 2018",
-            "favorite_count": 54056,
-            "id_str": "947824196909961216",
-            "in_reply_to_user_id_str": null,
-            "is_retweet": false,
-            "retweet_count": 8656,
-            "source": "Twitter for iPhone",
-            "text": "Will be leaving Florida for Washington (D.C.) today at 4:00 P.M. Much work to be done, but it will be a great New                Year!"
-            }
+            "rank": "1",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "population": "12,442,373"
+           }
 
 
 ## Spiders
@@ -38,9 +40,9 @@ This project contains one spider and you can list them using the `list`
 command:
 
     $ scrapy list
-    jsonResponseHandle
+    wikiTableScrapeSpider
 
-Spider extract the data from json.
+Spider extract the data from wikipedia tables.
 
 
 
@@ -49,8 +51,8 @@ Spider extract the data from json.
 
 You can run a spider using the `scrapy crawl` command, such as:
 
-    $ scrapy crawl jsonResponseHandle
+    $ scrapy crawl wikiTableScrapeSpider
 
 If you want to save the scraped data to a file, you can pass the `-o` option:
     
-    $ scrapy crawl jsonResponseHandle -o output.json
+    $ scrapy crawl wikiTableScrapeSpider -o output.json
